@@ -1,0 +1,12 @@
+import java_cup.runtime.*;
+
+terminal LEFT_PAREN, RIGHT_PAREN, ID, PLUS, MULTIPLY;
+
+non terminal expression, transform, form;
+
+expression ::= expression PLUS transform;
+expression ::= transform;
+transform ::= transform MULTIPLY form;
+transform ::= form;
+form ::= LEFT_PAREN expression RIGHT_PAREN;
+form ::= ID;
